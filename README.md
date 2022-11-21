@@ -18,6 +18,8 @@
 
 * Default Login: admin:pass
 
+* U Can Change The Password of shell, Even this is a mini version
+
 
 
 # Preview/How to use lock shell feature:
