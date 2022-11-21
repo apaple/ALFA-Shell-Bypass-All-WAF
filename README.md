@@ -22,7 +22,7 @@
 
 # Preview/How to use lock shell feature:
 
-<img src="https://raw.githubusercontent.com/riztrexx/ALFA-Shell-Bypass-All-WAF/main/Recording%202022-11-20%20at%2000.51.33.gif">
+<img src="https://raw.githubusercontent.com/riztrexx/ALFA-Shell-Bypass-All-WAF/main/ezgif.com-gif-maker.gif">
 
 # Credits:
 
